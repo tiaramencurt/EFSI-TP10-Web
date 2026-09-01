@@ -1,16 +1,8 @@
 import React from 'react';
-import type { Item } from '../../types/item';
 import ItemCard from '../ItemCard';
 import './ItemList.css';
 
-interface ItemListProps {
-  items: Item[];
-  isFavoriteCheck: (id: number) => boolean;
-  onAddFavorite: (item: Item) => void;
-  onRemoveFavorite: (id: number) => void;
-}
-
-const ItemList: React.FC<ItemListProps> = ({
+const ItemList = ({
   items,
   isFavoriteCheck,
   onAddFavorite,

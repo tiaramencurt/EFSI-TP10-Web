@@ -1,15 +1,7 @@
 import React from 'react';
-import type { Item } from '../../types/item';
 import './ItemCard.css';
 
-interface ItemCardProps {
-  item: Item;
-  isFavorite: boolean;
-  onAddFavorite?: (item: Item) => void;
-  onRemoveFavorite?: (id: number) => void;
-}
-
-const ItemCard: React.FC<ItemCardProps> = ({
+const ItemCard = ({
   item,
   isFavorite,
   onAddFavorite,
