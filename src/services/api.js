@@ -1,26 +1,22 @@
 import axios from 'axios';
-import type { Item } from '../types/item';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
-export const fetchItems = async (): Promise<Item[]> => {
-  // Obtenemos los primeros 20 pokémon
+export const fetchItems = async () => {
   const response = await axios.get(`${BASE_URL}/pokemon?limit=20`);
   const results = response.data.results;
 
-  // Obtenemos el detalle de cada elemento para extraer imagen, tipo y peso
-  const itemsPromises = results.map(async (pokemon: { url: string }) => {
+  const itemsPromises = results.map(async (pokemon) => {
     const detailResponse = await axios.get(pokemon.url);
     const data = detailResponse.data;
 
-    const item: Item = {
+    return {
       id: data.id,
       name: data.name,
       image: data.sprites.front_default || '',
-      type: data.types.map((t: any) => t.type.name).join(', '),
+      type: data.types.map((t) => t.type.name).join(', '),
       weight: data.weight,
     };
-    return item;
   });
 
   return Promise.all(itemsPromises);
