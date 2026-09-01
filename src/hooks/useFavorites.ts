@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Item } from '../types/item';
+import type { Item } from '../types/item';
 
 const FAVORITES_KEY = 'app_favorites';
 

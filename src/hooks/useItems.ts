@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Item } from '../types/item';
+import type { Item } from '../types/item';
 import { fetchItems } from '../services/api';
 
 export const useItems = () => {

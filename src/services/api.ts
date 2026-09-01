@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Item } from '../types/item';
+import type { Item } from '../types/item';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
